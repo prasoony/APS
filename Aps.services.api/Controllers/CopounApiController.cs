@@ -58,5 +58,66 @@ namespace Aps.services.api.Controllers
             }
             return _responseDto;
         }
+
+
+        [HttpPost]
+        public ResponseDto Post([FromBody] CopounDto copounDto)
+        {
+            try
+            {
+                Copoun obj = _mapper.Map<Copoun>(copounDto);
+                _db.Add(obj);
+                _db.SaveChanges();
+                _responseDto.Result = _mapper.Map<CopounDto>(obj);
+ 
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Sucsess = false;
+                _responseDto.Message = ex.Message;
+            }
+            return _responseDto;
+        }
+
+
+        [HttpPut]
+        public ResponseDto Put([FromBody] CopounDto copounDto)
+        {
+            try
+            {
+                Copoun obj = _mapper.Map<Copoun>(copounDto);
+                _db.Update(obj);
+                _db.SaveChanges();
+                _responseDto.Result = _mapper.Map<CopounDto>(obj);
+
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Sucsess = false;
+                _responseDto.Message = ex.Message;
+            }
+            return _responseDto;
+        }
+
+
+        [HttpDelete]
+        public ResponseDto Delete(int id)
+        {
+            try
+            {
+                Copoun objlist = _db.Copouns.First(u => u.CopounId == id);
+                _db.Remove(objlist);
+                _db.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Sucsess = false;
+                _responseDto.Message = ex.Message;
+            }
+            return _responseDto;
+        }
+
+
+    
     }
 }
