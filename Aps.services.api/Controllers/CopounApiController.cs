@@ -59,6 +59,24 @@ namespace Aps.services.api.Controllers
             return _responseDto;
         }
 
+        [HttpGet]
+        [Route("GetByCode/{code}")]
+        public ResponseDto GetByCode(string Code)
+        {
+            try
+            {
+                Copoun objlist = _db.Copouns.First(u => u.CopounCode.ToLower() == Code.ToLower());
+                _responseDto.Result = _mapper.Map<CopounDto>(objlist);
+                return _responseDto;
+            }
+            catch (Exception ex)
+            {
+                _responseDto.Sucsess = false;
+                _responseDto.Message = ex.Message;
+            }
+            return _responseDto;
+        }
+
 
         [HttpPost]
         public ResponseDto Post([FromBody] CopounDto copounDto)
