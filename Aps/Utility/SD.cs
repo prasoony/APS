@@ -3,7 +3,7 @@
     public class SD
     {
 
-        public static string CopounAPIBase { get; set; };
+        public static string CopounAPIBase { get; set; }
         public enum ApiType
         {
             GET,

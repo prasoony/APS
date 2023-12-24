@@ -1,5 +1,6 @@
 ﻿using Aps.Models;
 using Aps.Services.IServices;
+using static Aps.Utility.SD;
 
 namespace Aps.Services
 {
@@ -11,34 +12,72 @@ namespace Aps.Services
             _baseServices = baseServices;
         }
 
-        Task<CopounDto?> ICopounService.CreateCopounAsyn(CopounDto copounDto)
+
+        public async Task<ResponseDto?> CreateCopounAsyn(CopounDto copounDto)
         {
-            throw new NotImplementedException();
+
+
+            return await _baseServices.SendAsync(new RequestDto()
+            {
+                ApiType = ApiType.GET,
+                Data =copounDto,
+                Url = CopounAPIBase + "/api/copouns"
+            });
         }
 
-        Task<CopounDto?> ICopounService.DeleteCopounAsyn(int id)
+      
+
+        public async Task<ResponseDto?> DeleteCopounAsyn(int id)
         {
-            throw new NotImplementedException();
+            return await _baseServices.SendAsync(new RequestDto()
+            {
+                ApiType = ApiType.DELETE,
+                Url = CopounAPIBase + "/api/copouns/"+id
+            });
         }
 
-        Task<CopounDto?> ICopounService.GetAllCopounAsyn()
+       
+
+        public async Task<ResponseDto?> GetAllCopounAsyn()
         {
-            throw new NotImplementedException();
+            return await _baseServices.SendAsync(new RequestDto()
+            {
+                ApiType = ApiType.GET,
+                Url = CopounAPIBase + "/api/copouns"
+            });
         }
 
-        Task<CopounDto?> ICopounService.GetCopounAsyn(string CopounCode)
+       
+        public async Task<ResponseDto?> GetCopounAsyn(string CopounCode)
         {
-            throw new NotImplementedException();
+            return await _baseServices.SendAsync(new RequestDto()
+            {
+                ApiType = ApiType.GET,
+                Url = CopounAPIBase + "/api/copouns/GetbyCode/"+CopounCode
+            });
         }
 
-        Task<CopounDto?> ICopounService.GetCopounGetIDAsyn(int id)
+       
+
+        public async Task<ResponseDto?> GetCopounGetIDAsyn(int id)
         {
-            throw new NotImplementedException();
+            return await _baseServices.SendAsync(new RequestDto()
+            {
+                ApiType = ApiType.GET,
+                Url = CopounAPIBase + "/api/copouns" +id
+            });
         }
 
-        Task<CopounDto?> ICopounService.UpdateCopounAsyn(CopounDto copounDto)
+       
+
+        public  async Task<ResponseDto?> UpdateCopounAsyn(CopounDto copounDto)
         {
-            throw new NotImplementedException();
+            return await _baseServices.SendAsync(new RequestDto()
+            {
+                ApiType = ApiType.PUT,
+                Data =copounDto,
+                Url = CopounAPIBase + "/api/copouns"
+            });
         }
     }
 }

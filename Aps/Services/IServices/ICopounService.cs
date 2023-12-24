@@ -4,11 +4,11 @@ namespace Aps.Services.IServices
 {
     public interface ICopounService
     {
-        Task<CopounDto?> GetCopounAsyn(string CopounCode);
-        Task<CopounDto?> GetAllCopounAsyn();
-        Task<CopounDto?> GetCopounGetIDAsyn( int id );
-        Task<CopounDto?> CreateCopounAsyn(CopounDto copounDto);
-        Task<CopounDto?> DeleteCopounAsyn(int id );
-        Task<CopounDto?> UpdateCopounAsyn(CopounDto copounDto);
+        Task<ResponseDto?> GetCopounAsyn(string CopounCode);
+        Task<ResponseDto?> GetAllCopounAsyn();
+        Task<ResponseDto?> GetCopounGetIDAsyn( int id );
+        Task<ResponseDto?> CreateCopounAsyn(CopounDto copounDto);
+        Task<ResponseDto?> DeleteCopounAsyn(int id );
+        Task<ResponseDto?> UpdateCopounAsyn(CopounDto copounDto);
     }
 }
