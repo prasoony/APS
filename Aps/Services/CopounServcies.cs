@@ -4,14 +4,13 @@ using static Aps.Utility.SD;
 
 namespace Aps.Services
 {
-    public class CopounServcies:ICopounService
+    public class CopounServcies : ICopounService
     {
-        private readonly IBaseServices _baseServices;
+        private readonly IBaseServices _baseServices ;
         public CopounServcies(IBaseServices baseServices)
         {
             _baseServices = baseServices;
         }
-
 
         public async Task<ResponseDto?> CreateCopounAsyn(CopounDto copounDto)
         {
@@ -21,7 +20,7 @@ namespace Aps.Services
             {
                 ApiType = ApiType.GET,
                 Data =copounDto,
-                Url = CopounAPIBase + "/api/copouns"
+                Url = CouponAPIBase + "/api/copouns"
             });
         }
 
@@ -32,7 +31,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.DELETE,
-                Url = CopounAPIBase + "/api/copouns/"+id
+                Url = CouponAPIBase + "/api/copouns/"+id
             });
         }
 
@@ -43,7 +42,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = CopounAPIBase + "/api/copouns"
+                Url = CouponAPIBase + "/api/copouns"
             });
         }
 
@@ -53,7 +52,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = CopounAPIBase + "/api/copouns/GetbyCode/"+CopounCode
+                Url = CouponAPIBase + "/api/copouns/GetbyCode/"+CopounCode
             });
         }
 
@@ -64,7 +63,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = CopounAPIBase + "/api/copouns" +id
+                Url = CouponAPIBase + "/api/copouns" +id
             });
         }
 
@@ -76,7 +75,7 @@ namespace Aps.Services
             {
                 ApiType = ApiType.PUT,
                 Data =copounDto,
-                Url = CopounAPIBase + "/api/copouns"
+                Url = CouponAPIBase + "/api/copouns"
             });
         }
     }

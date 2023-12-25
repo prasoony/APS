@@ -7,11 +7,10 @@ using static Aps.Utility.SD;
 
 namespace Aps.Services
 {
-    public class BaseServices:IBaseServices
+    public class BaseServices : IBaseServices
     {
         private readonly IHttpClientFactory _httpClientFactory;
-
-        public BaseServices( IHttpClientFactory httpClientFactory)
+        public BaseServices(IHttpClientFactory httpClientFactory)
         {
             _httpClientFactory = httpClientFactory;
         }

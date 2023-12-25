@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace Aps.Controllers
 {
-    public class CopounController : Controller
+    public class CopounController(ICopounService copounService) : Controller
     {
 
-        private readonly ICopounService _copounService;
-        public CopounController(ICopounService copounService)
-        {
-            _copounService = copounService;
-        }
+        private  ICopounService _copounService = copounService;
+
         public async Task<IActionResult> CopounIndex()
         {
             List<CopounDto> list = new();

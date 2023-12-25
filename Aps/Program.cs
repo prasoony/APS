@@ -11,7 +11,10 @@ builder.Services.AddHttpClient();
 builder.Services.AddHttpClient<ICopounService, CopounServcies>();
 
 var app = builder.Build();
-SD.CopounAPIBase = builder.Configuration["ServiceUrls:api"];
+//SD.CopounAPIBase = builder.Configuration["ServiceUrls:api"];
+SD.CouponAPIBase = builder.Configuration["ServiceUrls:api"]!;
+builder.Services.AddScoped<IBaseServices, BaseServices>();
+builder.Services.AddScoped<ICopounService, CopounServcies>();
 //builder.Services.AddScoped<IBaseServices, BaseServices>();
 //builder.Services.AddScoped<ICopounService, CopounServcies>();
 // Configure the HTTP request pipeline.

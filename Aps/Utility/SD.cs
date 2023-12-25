@@ -3,7 +3,7 @@
     public class SD
     {
 
-        public static string CopounAPIBase { get; set; }
+        public static string CouponAPIBase { get; set; } = string.Empty;
         public enum ApiType
         {
             GET,
