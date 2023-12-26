@@ -24,5 +24,10 @@ namespace Aps.Controllers
 
             return View(list);
         }
+
+        public async Task<IActionResult>CopounCreate()
+        {
+            return View();
+        }
     }
 }
