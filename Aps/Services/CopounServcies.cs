@@ -18,9 +18,9 @@ namespace Aps.Services
 
             return await _baseServices.SendAsync(new RequestDto()
             {
-                ApiType = ApiType.GET,
+                ApiType = ApiType.POST,
                 Data =copounDto,
-                Url = CouponAPIBase + "/api/copouns"
+                Url = CouponAPIBase + "/api/CopounApi"
             });
         }
 
@@ -31,7 +31,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.DELETE,
-                Url = CouponAPIBase + "/api/copouns/"+id
+                Url = CouponAPIBase + "/api/CopounApi/" + id
             });
         }
 
@@ -52,7 +52,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = CouponAPIBase + "/api/copouns/GetbyCode/"+CopounCode
+                Url = CouponAPIBase + "/api/CopounApi/GetbyCode/" + CopounCode
             });
         }
 
@@ -63,7 +63,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = CouponAPIBase + "/api/copouns" +id
+                Url = CouponAPIBase + "/api/CopounApi" + id
             });
         }
 
@@ -75,7 +75,7 @@ namespace Aps.Services
             {
                 ApiType = ApiType.PUT,
                 Data =copounDto,
-                Url = CouponAPIBase + "/api/copouns"
+                Url = CouponAPIBase + "/api/CopounApi"
             });
         }
     }
