@@ -19,8 +19,8 @@ namespace Aps.Controllers
             if(response!=null && response.Sucsess)
             {
                 list = JsonConvert.DeserializeObject<List<CopounDto>>(Convert.ToString(response.Result));
-                
-            }
+				
+			}
             else
             {
                 TempData["error"] = response?.Message;        
@@ -42,9 +42,10 @@ namespace Aps.Controllers
                 ResponseDto? response = await _copounService.CreateCopounAsyn(model);
                 if (response != null && response.Sucsess)
                 {
-                   return RedirectToAction(nameof(CopounIndex));
-
-                }
+					TempData["success"] = "Coupon Create Successfully";
+					return RedirectToAction(nameof(CopounIndex));
+					
+				}
                 else
                 {
                     TempData["error"] = response?.Message;
@@ -61,6 +62,7 @@ namespace Aps.Controllers
 			{
 				CopounDto?model = JsonConvert.DeserializeObject<CopounDto>(Convert.ToString(response.Result));
                 return View(model);
+				
 			}
 
             else
@@ -77,6 +79,7 @@ namespace Aps.Controllers
 			ResponseDto? response = await _copounService.DeleteCopounAsyn(copounDto.CopounId);
 			if (response != null && response.Sucsess)
 			{
+				TempData["success"] = "Coupon deleted successfully";
 				return RedirectToAction(nameof(CopounIndex));
 			}
             else

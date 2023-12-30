@@ -5,9 +5,13 @@ VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ForntEnd", "ForntEnd", "{0C28A309-793C-4006-9A6D-A6B752530E5B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aps", "Aps\Aps.csproj", "{DDE48509-31B6-417C-ABA1-5670CC140BF1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aps", "Aps\Aps.csproj", "{DDE48509-31B6-417C-ABA1-5670CC140BF1}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Aps.services.api", "Aps.services.api\Aps.services.api.csproj", "{BC27B4FE-D951-44A0-B8AF-026847B7D8F0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{297D4E72-B05D-454B-8DDD-4FEA2327567C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthApi", "AuthApi\AuthApi.csproj", "{3B00D1BF-A869-473B-9D5F-3DA8B589C6DD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,12 +27,18 @@ Global
 		{BC27B4FE-D951-44A0-B8AF-026847B7D8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC27B4FE-D951-44A0-B8AF-026847B7D8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC27B4FE-D951-44A0-B8AF-026847B7D8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B00D1BF-A869-473B-9D5F-3DA8B589C6DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B00D1BF-A869-473B-9D5F-3DA8B589C6DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B00D1BF-A869-473B-9D5F-3DA8B589C6DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B00D1BF-A869-473B-9D5F-3DA8B589C6DD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{DDE48509-31B6-417C-ABA1-5670CC140BF1} = {0C28A309-793C-4006-9A6D-A6B752530E5B}
+		{BC27B4FE-D951-44A0-B8AF-026847B7D8F0} = {297D4E72-B05D-454B-8DDD-4FEA2327567C}
+		{3B00D1BF-A869-473B-9D5F-3DA8B589C6DD} = {297D4E72-B05D-454B-8DDD-4FEA2327567C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A346FAE3-A3CC-4DB7-86CB-45D04F3EC4F1}
