@@ -21,7 +21,10 @@ namespace Aps.Controllers
                 list = JsonConvert.DeserializeObject<List<CopounDto>>(Convert.ToString(response.Result));
                 
             }
-
+            else
+            {
+                TempData["error"] = response?.Message;        
+            }
 
             return View(list);
         }
@@ -42,22 +45,46 @@ namespace Aps.Controllers
                    return RedirectToAction(nameof(CopounIndex));
 
                 }
+                else
+                {
+                    TempData["error"] = response?.Message;
+                }
             }
              
             return View(model);
         }
-        [HttpDelete]
-        public async Task<IActionResult> CopounDelete( int copounId)
+       		
+		public async Task<IActionResult> CopounDelete( int CopounId)
         {
-			ResponseDto? response = await _copounService.GetCopounGetIDAsyn(copounId);
+			ResponseDto? response = await _copounService.GetCopounGetIDAsyn(CopounId);
 			if (response != null && response.Sucsess)
 			{
 				CopounDto?model = JsonConvert.DeserializeObject<CopounDto>(Convert.ToString(response.Result));
                 return View(model);
 			}
 
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
 
-			return NotFound();
+            return NotFound();
         }
-    }
+
+		[HttpPost]
+		public async Task<IActionResult> CopounDelete(CopounDto copounDto)
+		{
+			ResponseDto? response = await _copounService.DeleteCopounAsyn(copounDto.CopounId);
+			if (response != null && response.Sucsess)
+			{
+				return RedirectToAction(nameof(CopounIndex));
+			}
+            else
+            {
+                TempData["error"] = response?.Message;
+            }
+
+            return View(copounDto);
+		}
+	}
 }

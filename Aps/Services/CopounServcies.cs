@@ -63,7 +63,7 @@ namespace Aps.Services
             return await _baseServices.SendAsync(new RequestDto()
             {
                 ApiType = ApiType.GET,
-                Url = CouponAPIBase + "/api/CopounApi" + id
+                Url = CouponAPIBase + "/api/CopounApi/" + id
             });
         }
 
