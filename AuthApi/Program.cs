@@ -1,5 +1,7 @@
 using Aps.services.AuthApi.Data;
 using AuthApi.Models;
+using AuthApi.Services;
+using AuthApi.Services.Iservice;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -10,9 +12,13 @@ builder.Services.AddDbContext<AppDbcontext>(options =>
 {
 	options.UseSqlServer(builder.Configuration.GetConnectionString("defaultconnection"));
 });
+builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("ApiSettings:JwtOptions"));
+
 builder.Services.AddIdentity<ApplicationUser,IdentityRole>().AddEntityFrameworkStores<AppDbcontext>()
 	.AddDefaultTokenProviders();
 builder.Services.AddControllers();
+builder.Services.AddScoped<IAuthService ,Authservice>();
+builder.Services.AddScoped<IJwtTokenGenerator,JwtTokenGenerator>();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

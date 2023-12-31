@@ -1,6 +1,6 @@
 ﻿namespace AuthApi.Models.Dto
 {
-	public class LoginRequestDto
+	public class LoginResponseDto
 	{
 
         public UserDto user { get; set; }
